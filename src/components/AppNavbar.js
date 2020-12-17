@@ -21,7 +21,6 @@ class AppNavbar extends React.Component {
              <Navbar  expand="md">
                  <NavbarBrand href="/">Rentcar</NavbarBrand>
 
-                 <Collapse navbar>
                  <Nav>
                      <NavItem>
                          <NavLink>
@@ -35,7 +34,6 @@ class AppNavbar extends React.Component {
                      </NavItem>
 
                  </Nav>
-                 </Collapse>
              </Navbar>
          );
      }

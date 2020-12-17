@@ -6,6 +6,7 @@ import {
 import { Row } from "react-bootstrap";
 
 import apiFetch from "../utils/apiFetch";
+import DataTable from "../components/DataTable";
 
 class Tours extends React.Component {
 
@@ -19,7 +20,7 @@ class Tours extends React.Component {
     loadItems() {
         apiFetch('tours.get').then(result => {
             console.log(result);
-            this.setState({cars: result.items});
+            this.setState({items: result.items});
         });
 
     }
@@ -38,9 +39,23 @@ class Tours extends React.Component {
                 <hr/>
                 <Row>
                     {this.state.items && this.state.items.map((item) =>
-                        <div></div>
+                        <div>{item.name}</div>
                     )}
                 </Row>
+                <DataTable items={this.state.items}
+                           entityName={"tours"}
+                           needActions={true}
+                           namePairs={[
+                    {
+                        name: "id",
+                        text: "ИД"
+                    },
+                    {
+                        name: "name",
+                        text: "Имя тура"
+                    },
+
+                ]}/>
             </div>
         );
     }

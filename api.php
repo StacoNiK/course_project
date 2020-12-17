@@ -2,13 +2,17 @@
 
 include __DIR__.'/vendor/autoload.php';
 
+ini_set('error_reporting', E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+
 $config = include __DIR__.'/config.php';
 
 \app\Database::connect($config['db_host'], $config['db_user'], $config['db_password'], $config['db_name']);
 
 header("Access-Control-Allow-Origin: *");
-//$data = json_decode(file_get_contents('php://input'), true);
-$data = $_GET;
+$data = json_decode(file_get_contents('php://input'), true);
+//$data = $_GET;
 
 $apiMethods = [
     'flights' => [
@@ -23,7 +27,7 @@ $apiMethods = [
 
     ],
     'tours' => [
-        'controller' => '',
+        'controller' => \app\controller\TourController::class,
         'methods' => [
             'get',
             'getById',
