@@ -3,6 +3,7 @@
 namespace app\controller;
 
 use app\model\Flight;
+use app\RequestParams;
 
 class FlightController extends BaseController
 {
@@ -28,6 +29,9 @@ class FlightController extends BaseController
 
     public function delete()
     {
+        $params = RequestParams::$data;
 
+        $id = (int) $params['id'];
+        Flight::deleteById($id);
     }
 }

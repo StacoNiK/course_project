@@ -17,6 +17,14 @@ abstract class BaseModel
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public static function deleteById($id)
+    {
+        $table = static::getTable();
+        $id = (int) $id;
+        $result = static::getDbConnection()->query("DELETE FROM `{$table}` WHERE id = {$id}");
+        return ["success" => true];
+    }
+
     protected static function getDbConnection()
     {
         return Database::$connection;

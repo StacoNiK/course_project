@@ -14,6 +14,8 @@ header("Access-Control-Allow-Origin: *");
 $data = json_decode(file_get_contents('php://input'), true);
 //$data = $_GET;
 
+\app\RequestParams::$data = $data;
+
 $apiMethods = [
     'flights' => [
         'controller' => \app\controller\FlightController::class,

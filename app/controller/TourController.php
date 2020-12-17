@@ -3,6 +3,7 @@
 namespace app\controller;
 
 use app\model\Tour;
+use app\RequestParams;
 
 class TourController extends BaseController
 {
@@ -28,6 +29,9 @@ class TourController extends BaseController
 
     public function delete()
     {
+        $params = RequestParams::$data;
 
+        $id = (int) $params['id'];
+        Tour::deleteById($id);
     }
 }
