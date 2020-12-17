@@ -38,7 +38,7 @@ class Tours extends React.Component {
                 <h1>Туры</h1>
                 <hr/>
                 <Row>
-                    <Link to={'tours/add'}><Button primary>Добавить тур</Button></Link>
+                    <Link to={'/tours/add'}><Button primary>Добавить тур</Button></Link>
                 </Row>
                 <hr/>
                 <Row>

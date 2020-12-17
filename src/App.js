@@ -16,6 +16,7 @@ import Auth from "./pages/Auth";
 import Tours from "./pages/Tours";
 import ToursAdd from "./pages/ToursAdd";
 import ToursRequests from "./pages/ToursRequests";
+import ToursRequestsAdd from "./pages/ToursRequestsAdd";
 
 export default function App() {
   return (
@@ -35,6 +36,10 @@ export default function App() {
 
             <Route path="/tours/add">
               <ToursAdd />
+            </Route>
+
+            <Route path="/tours/requests/add">
+              <ToursRequestsAdd />
             </Route>
 
             <Route path="/tours/requests">
