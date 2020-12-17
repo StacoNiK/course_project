@@ -2,39 +2,39 @@
 
 namespace app\controller;
 
+use app\model\Person;
 use app\model\Tour;
-use app\model\ToursRequest;
 use app\RequestParams;
 
-class ToursRequestController extends BaseController
+class PersonController extends BaseController
 {
     public function get()
     {
-        return ["items" => ToursRequest::get()];
+        return ["items" => Person::all()];
     }
 
-    /*public function getById()
+    public function getById()
     {
 
-    }*/
+    }
 
     public function add()
     {
-        ToursRequest::insert(RequestParams::$data);
+        Person::insert(RequestParams::$data);
         return ['success' => true];
     }
 
-    /*public function edit()
+    public function edit()
     {
 
-    }*/
+    }
 
     public function delete()
     {
         $params = RequestParams::$data;
 
         $id = (int) $params['id'];
-        ToursRequest::deleteById($id);
+        Person::deleteById($id);
         return ['success' => true];
     }
 }

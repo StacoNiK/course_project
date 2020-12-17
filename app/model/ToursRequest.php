@@ -6,6 +6,12 @@ class ToursRequest extends BaseModel
 {
     public static $table = "tours_requests";
 
+    public static $properties = [
+      "person_id",
+      "tour_id",
+      "cost"
+    ];
+
     public static function get($offer = 0, $count = 100000)
     {
         $table = static::getTable();

@@ -66,6 +66,7 @@ class ToursRequestsAdd extends React.Component {
                     <FormGroup>
                         <label >Тур</label>
                         <Form.Control as={"select"} id="tour_id" placeholder="tour" name="tour_id" onChange={this.handleInputChange}>
+                            <option value="0">Не выбран</option>
                             {this.state.tours && this.state.tours.map(tour =>
                                 <option value={tour.id}>{tour.name}</option>
                             )}
@@ -74,6 +75,7 @@ class ToursRequestsAdd extends React.Component {
                     <FormGroup>
                         <label>Клиент</label>
                         <Form.Control as={"select"} id="#person_id" name="person_id" onChange={this.handleInputChange}>
+                            <option value="0">Не выбран</option>
                             {this.state.persons && this.state.persons.map(person =>
                                 <option value={person.id}>{person.first_name} {person.last_name}</option>
                             )}

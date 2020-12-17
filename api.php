@@ -50,6 +50,17 @@ $apiMethods = [
         ],
 
     ],
+    'persons' => [
+        'controller' => \app\controller\PersonController::class,
+        'methods' => [
+            'get',
+            'getById',
+            'add',
+            'delete',
+            'edit'
+        ],
+
+    ],
 ];
 
 if (!isset($data['method'])) {
