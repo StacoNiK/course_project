@@ -1,6 +1,6 @@
 import React from "react";
 import {
-    Link
+    Link, withRouter
 } from "react-router-dom";
 
 import { Row } from "react-bootstrap";
@@ -62,4 +62,4 @@ class Tours extends React.Component {
 
 }
 
-export default Tours;
+export default withRouter(Tours);

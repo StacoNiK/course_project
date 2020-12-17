@@ -14,6 +14,7 @@ import Contacts from './pages/Contacts';
 import Order from "./pages/Order";
 import Auth from "./pages/Auth";
 import Tours from "./pages/Tours";
+import ToursAdd from "./pages/ToursAdd";
 
 export default function App() {
   return (
@@ -29,6 +30,10 @@ export default function App() {
             </Route>
             <Route path="/contacts">
               <Contacts />
+            </Route>
+
+            <Route path="/tours/add">
+              <ToursAdd />
             </Route>
 
             <Route path="/tours">

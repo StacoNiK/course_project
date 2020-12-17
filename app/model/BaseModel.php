@@ -25,6 +25,18 @@ abstract class BaseModel
         return ["success" => true];
     }
 
+    public static function insert($data)
+    {
+        $table = static::getTable();
+        $values = '';
+        foreach ($data as $key => $item) {
+            $values .= "`{$key}`=\"{$item}\",";
+        }
+        $values = substr($values, 0, -1);
+        $result = static::getDbConnection()->query("INSERT INTO `{$table}` SET {$values}");
+        return ["success" => true];
+    }
+
     protected static function getDbConnection()
     {
         return Database::$connection;

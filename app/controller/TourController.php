@@ -19,7 +19,8 @@ class TourController extends BaseController
 
     public function add()
     {
-
+        Tour::insert(RequestParams::$data);
+        return ['success' => true];
     }
 
     public function edit()
@@ -33,5 +34,6 @@ class TourController extends BaseController
 
         $id = (int) $params['id'];
         Tour::deleteById($id);
+        return ['success' => true];
     }
 }
