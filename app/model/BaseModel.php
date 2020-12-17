@@ -8,7 +8,7 @@ abstract class BaseModel
 {
     public static $table;
 
-    public static $properties = [];
+    public static $properties = null;
 
     public static function all()
     {
@@ -27,9 +27,21 @@ abstract class BaseModel
 
     public static function insert($data)
     {
+        $toInsert = [];
+
+        if (!is_array(static::$properties)) {
+            $toInsert = $data;
+        } else {
+            foreach (static::$properties as $prop) {
+                if (isset($data[$prop])) {
+                    $toInsert[$prop] = $data[$prop];
+                }
+            }
+        }
+
         $table = static::getTable();
         $values = '';
-        foreach ($data as $key => $item) {
+        foreach ($toInsert as $key => $item) {
             $values .= "`{$key}`=\"{$item}\",";
         }
         $values = substr($values, 0, -1);

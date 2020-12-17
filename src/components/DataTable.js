@@ -26,7 +26,9 @@ class DataTable extends React.Component {
         let apiMethod = this.props.entityName + '.delete';
         apiFetch(apiMethod, {
             id: id
-        });
+        }).then((result) =>
+            document.getElementById("item"+id).style.display = 'none'
+        );
     }
 
     render() {
@@ -46,7 +48,7 @@ class DataTable extends React.Component {
                 </thead>
                 <tbody>
                     {this.props.items && this.props.items.map((item) =>
-                        <tr key={item.id} id={item}>
+                        <tr key={item.id} id={"item"+item.id}>
                             {this.props.namePairs.map((pair) =>
                                 <td>{item[pair.name]}</td>
                             )}

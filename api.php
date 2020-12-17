@@ -36,7 +36,18 @@ $apiMethods = [
             'add',
             'delete',
             'edit'
-        ]
+        ],
+
+    ],
+    'tours_requests' => [
+        'controller' => \app\controller\ToursRequestController::class,
+        'methods' => [
+            'get',
+            'getById',
+            'add',
+            'delete',
+            'edit'
+        ],
 
     ],
 ];

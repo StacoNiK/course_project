@@ -13,15 +13,4 @@ class Tour extends BaseModel
         'date_end',
         'cost'
     ];
-
-    public static function insert($data)
-    {
-        $toInsert = [];
-        foreach (static::$properties as $prop) {
-            if (isset($data[$prop])) {
-                $toInsert[$prop] = $data[$prop];
-            }
-        }
-        parent::insert($toInsert);
-    }
 }

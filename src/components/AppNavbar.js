@@ -24,12 +24,12 @@ class AppNavbar extends React.Component {
                  <Nav>
                      <NavItem>
                          <NavLink>
-                            <Link to="/">Каталог</Link>
+                            <Link to="/tours">Туры</Link>
                          </NavLink>
                      </NavItem>
                      <NavItem>
                          <NavLink>
-                             <Link to="/contacts">Контакты</Link>
+                             <Link to="/tours/requests">Заявки</Link>
                          </NavLink>
                      </NavItem>
 

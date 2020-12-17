@@ -3,7 +3,7 @@ import {
     Link, withRouter
 } from "react-router-dom";
 
-import { Row } from "react-bootstrap";
+import { Row, Button } from "react-bootstrap";
 
 import apiFetch from "../utils/apiFetch";
 import DataTable from "../components/DataTable";
@@ -38,24 +38,36 @@ class Tours extends React.Component {
                 <h1>Туры</h1>
                 <hr/>
                 <Row>
-                    {this.state.items && this.state.items.map((item) =>
-                        <div>{item.name}</div>
-                    )}
+                    <Link to={'tours/add'}><Button primary>Добавить тур</Button></Link>
                 </Row>
+                <hr/>
+                <Row>
                 <DataTable items={this.state.items}
                            entityName={"tours"}
                            needActions={true}
                            namePairs={[
-                    {
-                        name: "id",
-                        text: "ИД"
-                    },
-                    {
-                        name: "name",
-                        text: "Имя тура"
-                    },
-
+                                {
+                                    name: "id",
+                                    text: "ИД"
+                                },
+                                {
+                                    name: "name",
+                                    text: "Имя тура"
+                                },
+                               {
+                                    name: "date_start",
+                                    text: "Дата старта"
+                               },
+                               {
+                                   name: "date_end",
+                                   text: "Дата завершения"
+                               },
+                               {
+                                   name: "cost",
+                                   text: "Стоимость"
+                               }
                 ]}/>
+                </Row>
             </div>
         );
     }
