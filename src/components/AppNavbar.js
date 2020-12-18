@@ -19,7 +19,7 @@ class AppNavbar extends React.Component {
      render() {
          return (
              <Navbar  expand="md">
-                 <NavbarBrand href="/">Rentcar</NavbarBrand>
+                 <NavbarBrand href="/">АнархоТурист</NavbarBrand>
 
                  <Nav>
                      <NavItem>
@@ -32,7 +32,11 @@ class AppNavbar extends React.Component {
                              <Link to="/tours/requests">Заявки</Link>
                          </NavLink>
                      </NavItem>
-
+                     <NavItem>
+                         <NavLink>
+                             <Link to="/persons">Клиенты</Link>
+                         </NavLink>
+                     </NavItem>
                  </Nav>
              </Navbar>
          );
