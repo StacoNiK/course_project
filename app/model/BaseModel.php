@@ -17,11 +17,45 @@ abstract class BaseModel
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public static function getById($id)
+    {
+        $table = static::getTable();
+        $result = static::getDbConnection()->query("SELECT * FROM `{$table}` WHERE id = {$id}");
+        return $result->fetch_assoc();
+    }
+
     public static function deleteById($id)
     {
         $table = static::getTable();
         $id = (int) $id;
         $result = static::getDbConnection()->query("DELETE FROM `{$table}` WHERE id = {$id}");
+        return ["success" => true];
+    }
+
+    public static function editById($id, $data)
+    {
+        $table = static::getTable();
+        $id = (int) $id;
+
+        $toUpdate = [];
+
+        if (!is_array(static::$properties)) {
+            $toUpdate = $data;
+        } else {
+            foreach (static::$properties as $prop) {
+                if (isset($data[$prop])) {
+                    $toUpdate[$prop] = $data[$prop];
+                }
+            }
+        }
+
+        $values = '';
+        foreach ($toUpdate as $key => $item) {
+            $values .= "`{$key}`=\"{$item}\",";
+        }
+        $values = substr($values, 0, -1);
+
+        $result = static::getDbConnection()->query("UPDATE `{$table}` SET ".$values." WHERE id = {$id}");
         return ["success" => true];
     }
 

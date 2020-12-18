@@ -20,6 +20,7 @@ import ToursRequestsAdd from "./pages/ToursRequestsAdd";
 import Persons from "./pages/Persons";
 import Flights from "./pages/Flights";
 import PersonsAdd from "./pages/PersonsAdd";
+import ToursEdit from "./pages/ToursEdit";
 
 export default function App() {
   return (
@@ -33,6 +34,10 @@ export default function App() {
 
             <Route path="/tours/add">
               <ToursAdd />
+            </Route>
+
+            <Route path="/tours/edit/:id">
+              <ToursEdit />
             </Route>
 
             <Route path="/tours/requests/add">

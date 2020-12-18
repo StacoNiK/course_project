@@ -18,7 +18,6 @@ class DataTable extends React.Component {
     }
 
     edit(id) {
-
     }
 
     delete(id) {
@@ -54,7 +53,7 @@ class DataTable extends React.Component {
                             )}
                             {this.props.needActions &&
                             <td>
-                                <button onClick={this.edit.bind(this, item.id)} >Edit</button>
+                                <button><Link to={"/"+this.props.entityName+"/edit/"+item.id}>Edit</Link></button>
                                 <button onClick={this.delete.bind(this, item.id)}>Delete</button>
                             </td>}
                         </tr>
