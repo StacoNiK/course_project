@@ -8,7 +8,7 @@ import {Form, Button, FormGroup } from "react-bootstrap";
 import apiFetch from "../utils/apiFetch";
 import ProtectedComponent from "../components/ProtectedComponent";
 
-class ToursAdd extends ProtectedComponent {
+class PersonsAdd extends ProtectedComponent {
 
     constructor(props) {
         super(props);
@@ -36,34 +36,34 @@ class ToursAdd extends ProtectedComponent {
 
     create() {
         const { match, history } = this.props;
-        apiFetch('tours.add', this.state).then(result => {
+        apiFetch('flights.add', this.state).then(result => {
             console.log(result);
             //this.setState({items: result.items});
-            history.push('/tours');
+            history.push('/flights');
         });
     }
 
     render() {
         return (
             <div>
-                <h1>Добавить тур</h1>
+                <h1>Добавить клиента</h1>
                 <hr/>
                 <Form>
                     <FormGroup>
-                        <label >Название</label>
-                        <Form.Control id="name" placeholder="Чудесный тур" name="name" onChange={this.handleInputChange}/>
+                        <label >Из какого аэропорта</label>
+                        <Form.Control id="from_airport" placeholder="" name="from_airport" onChange={this.handleInputChange}/>
                     </FormGroup>
                     <FormGroup>
-                        <label >Страна</label>
-                        <Form.Control id="country" placeholder="Зимбабве" name="country" onChange={this.handleInputChange}/>
+                        <label >В какой аэропорт</label>
+                        <Form.Control id="to_airport" placeholder="" name="to_airport" onChange={this.handleInputChange}/>
                     </FormGroup>
                     <FormGroup>
-                        <label >С какого</label>
-                        <Form.Control type="date" id="#date_from" name="date_start" onChange={this.handleInputChange}/>
+                        <label >Дата вылета</label>
+                        <Form.Control type="date" id="#date_start" name="date_start" onChange={this.handleInputChange}/>
                     </FormGroup>
                     <FormGroup>
-                        <label >По какое</label>
-                        <Form.Control type="date" id="#date_to" name="date_end" onChange={this.handleInputChange}/>
+                        <label >Дата прибытия</label>
+                        <Form.Control type="date" id="#date_end" name="date_end" onChange={this.handleInputChange}/>
                     </FormGroup>
                     <FormGroup>
                         <label >Стоимость</label>
@@ -77,4 +77,4 @@ class ToursAdd extends ProtectedComponent {
 
 }
 
-export default withRouter(ToursAdd);
+export default withRouter(PersonsAdd);

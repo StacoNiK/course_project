@@ -7,8 +7,9 @@ import { Row, Button } from "react-bootstrap";
 
 import apiFetch from "../utils/apiFetch";
 import DataTable from "../components/DataTable";
+import ProtectedComponent from "../components/ProtectedComponent";
 
-class Tours extends React.Component {
+class Tours extends ProtectedComponent {
 
     constructor(props) {
         super(props);

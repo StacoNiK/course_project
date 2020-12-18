@@ -6,8 +6,9 @@ import {
 import {Form, Button, FormGroup } from "react-bootstrap";
 
 import apiFetch from "../utils/apiFetch";
+import ProtectedComponent from "../components/ProtectedComponent";
 
-class ToursRequestsAdd extends React.Component {
+class ToursRequestsAdd extends ProtectedComponent {
 
     constructor(props) {
         super(props);

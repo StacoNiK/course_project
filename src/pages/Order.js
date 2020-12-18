@@ -7,9 +7,10 @@ import { withRouter } from "react-router";
 
 import { Alert, FormGroup, Form, Button } from "react-bootstrap";
 import apiFetch from "../utils/apiFetch";
+import ProtectedComponent from "../components/ProtectedComponent";
 
 
-class Order extends React.Component {
+class Order extends ProtectedComponent {
 
     constructor(props) {
         super(props);

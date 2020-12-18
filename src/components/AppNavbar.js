@@ -37,6 +37,11 @@ class AppNavbar extends React.Component {
                              <Link to="/persons">Клиенты</Link>
                          </NavLink>
                      </NavItem>
+                     <NavItem>
+                         <NavLink>
+                             <Link to="/flights">Полеты</Link>
+                         </NavLink>
+                     </NavItem>
                  </Nav>
              </Navbar>
          );

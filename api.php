@@ -59,8 +59,13 @@ $apiMethods = [
             'delete',
             'edit'
         ],
-
     ],
+    'auth' => [
+        'controller' => \app\controller\AuthController::class,
+        'methods' => [
+            'check'
+        ]
+    ]
 ];
 
 if (!isset($data['method'])) {
@@ -73,6 +78,18 @@ $methodParts = explode('.', $requestMethod);
 
 if (!isset($methodParts[1])){
     echo 'incorrect method';
+    die();
+}
+
+if (!isset($data['login']) || !isset($data['password'])) {
+    echo '{"auth": false}';
+    die();
+}
+
+$isAuth = \app\AuthService::checkAuth($data['login'], $data['password']);
+
+if (!$isAuth) {
+    echo '{"auth": false}';
     die();
 }
 

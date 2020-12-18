@@ -4,8 +4,8 @@ namespace app\controller;
 
 class AuthController extends BaseController
 {
-    public function login()
+    public function check()
     {
-
+        return ['auth' => true];
     }
 }

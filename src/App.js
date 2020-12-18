@@ -18,6 +18,8 @@ import ToursAdd from "./pages/ToursAdd";
 import ToursRequests from "./pages/ToursRequests";
 import ToursRequestsAdd from "./pages/ToursRequestsAdd";
 import Persons from "./pages/Persons";
+import Flights from "./pages/Flights";
+import PersonsAdd from "./pages/PersonsAdd";
 
 export default function App() {
   return (
@@ -25,14 +27,8 @@ export default function App() {
           <AppNavbar/>
         <Container className="dr-example-container">
           <Switch>
-            <Route path="/Auth">
+            <Route path="/auth">
               <Auth />
-            </Route>
-            <Route path="/order/:id">
-              <Order />
-            </Route>
-            <Route path="/contacts">
-              <Contacts />
             </Route>
 
             <Route path="/tours/add">
@@ -51,8 +47,16 @@ export default function App() {
               <Tours />
             </Route>
 
+            <Route path="/persons/add">
+              <PersonsAdd />
+            </Route>
+
             <Route path="/persons">
               <Persons />
+            </Route>
+
+            <Route path="/flights">
+              <Flights />
             </Route>
 
             <Route path="/">

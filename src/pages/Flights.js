@@ -9,7 +9,7 @@ import apiFetch from "../utils/apiFetch";
 import DataTable from "../components/DataTable";
 import ProtectedComponent from "../components/ProtectedComponent";
 
-class Persons extends ProtectedComponent {
+class Flights extends ProtectedComponent {
 
     constructor(props) {
         super(props);
@@ -19,7 +19,7 @@ class Persons extends ProtectedComponent {
     }
 
     loadItems() {
-        apiFetch('persons.get').then(result => {
+        apiFetch('flights.get').then(result => {
             console.log(result);
             this.setState({items: result.items});
         });
@@ -36,15 +36,15 @@ class Persons extends ProtectedComponent {
     render() {
         return (
             <div>
-                <h1>Клиенты</h1>
+                <h1>Полеты</h1>
                 <hr/>
                 <Row>
-                    <Link to={'/persons/add'}><Button primary>Добавить клиента</Button></Link>
+                    <Link to={'/flights/add'}><Button primary>Добавить информацию о полёте</Button></Link>
                 </Row>
                 <hr/>
                 <Row>
                     <DataTable items={this.state.items}
-                               entityName={"persons"}
+                               entityName={"flights"}
                                needActions={true}
                                namePairs={[
                                    {
@@ -52,28 +52,24 @@ class Persons extends ProtectedComponent {
                                        text: "ИД"
                                    },
                                    {
-                                       name: "first_name",
-                                       text: "Имя"
+                                       name: "from_airport",
+                                       text: "Откуда"
                                    },
                                    {
-                                       name: "last_name",
-                                       text: "Фамилия"
+                                       name: "to_airport",
+                                       text: "Куда"
                                    },
                                    {
-                                       name: "passport_number",
-                                       text: "Паспорт"
+                                       name: "date_start",
+                                       text: "Дата вылета"
                                    },
                                    {
-                                       name: "person_id",
-                                       text: "идентификационный номер"
+                                       name: "date_end",
+                                       text: "Дата прибытия"
                                    },
                                    {
-                                       name: "sex",
-                                       text: "пол"
-                                   },
-                                   {
-                                       name: "birthday",
-                                       text: "дата рождения"
+                                       name: "cost",
+                                       text: "Стоимость"
                                    }
                                ]}/>
                 </Row>
@@ -83,4 +79,4 @@ class Persons extends ProtectedComponent {
 
 }
 
-export default withRouter(Persons);
+export default withRouter(Flights);
